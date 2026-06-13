@@ -3,238 +3,667 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brayden's Plumbing | Austin, TX | 24/7 Emergency Service</title>
+<title>BRAYDEN'S PLUMBING — AUSTIN TX — (512) 890-3144</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --yellow: #FFE600;
+    --red: #FF2200;
+    --blue: #0033FF;
+    --border: 3px solid #0a0a0a;
+    --border-thick: 5px solid #0a0a0a;
+  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #fff; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    cursor: crosshair;
+  }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem; height: 64px;
-    background: rgba(4, 44, 83, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: var(--black);
+    border-bottom: var(--border-thick);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo { width: 36px; height: 36px; background: linear-gradient(135deg, #3b9eff, #0066cc); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .nav-brand span { font-size: 17px; font-weight: 600; color: white; }
+  .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--yellow);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
   .nav-right { display: flex; align-items: center; gap: 12px; }
-  .nav-badge { background: #16a34a; color: white; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
-  .nav-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-  .nav-phone { background: #f97316; color: white; border-radius: 8px; padding: 8px 16px; font-size: 14px; font-weight: 600; text-decoration: none; }
+  .nav-open {
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 6px 14px;
+    border: var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .nav-phone {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border: var(--border);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-phone:hover { background: var(--yellow); color: var(--black); }
 
   /* HERO */
   .hero {
-    position: relative; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; overflow: hidden;
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: var(--border-thick);
+    overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1400&q=80');
-    background-size: cover; background-position: center;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(1.1);
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(4,44,83,0.88) 0%, rgba(15,70,120,0.75) 50%, rgba(249,115,22,0.3) 100%);
+    background: rgba(10,10,10,0.55);
   }
-  .hero-content { position: relative; z-index: 1; padding: 8rem 2rem 4rem; max-width: 700px; }
+  .hero-content {
+    position: relative; z-index: 1;
+    padding: 3rem 2rem;
+    width: 100%;
+  }
   .hero-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(249,115,22,0.25); border: 1px solid rgba(249,115,22,0.5);
-    color: #fed7aa; border-radius: 999px; padding: 5px 16px; font-size: 13px; font-weight: 500;
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border: var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     margin-bottom: 1.5rem;
   }
   .hero h1 {
-    font-size: clamp(32px, 6vw, 56px); font-weight: 700; color: white; line-height: 1.15;
-    margin-bottom: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(44px, 9vw, 96px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
   }
-  .hero h1 span { color: #f97316; }
-  .hero p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 2rem; line-height: 1.6; }
-  .hero-stars { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2rem; }
-  .hero-stars .stars { color: #facc15; font-size: 22px; letter-spacing: 2px; }
-  .hero-stars span { color: rgba(255,255,255,0.85); font-size: 15px; }
-  .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .btn-orange {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white; border-radius: 12px; padding: 16px 28px;
-    font-weight: 700; font-size: 17px; text-decoration: none;
-    box-shadow: 0 8px 32px rgba(249,115,22,0.4);
-    transition: transform 0.15s, box-shadow 0.15s;
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(245,240,232,0.8);
+    margin-bottom: 2rem;
+    max-width: 520px;
+    line-height: 1.5;
   }
-  .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.5); }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.35);
-    color: white; border-radius: 12px; padding: 16px 28px;
-    font-weight: 600; font-size: 16px; text-decoration: none;
-    transition: background 0.15s;
+  .hero-stars {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 2rem;
   }
-  .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+  .hero-stars .stars {
+    font-size: 22px;
+    color: var(--yellow);
+    letter-spacing: 2px;
+  }
+  .hero-stars span {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .hero-cta { display: flex; gap: 0; flex-wrap: wrap; }
+  .btn-main {
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 18px 32px;
+    border: var(--border-thick);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: crosshair;
+  }
+  .btn-main:hover { background: var(--red); color: var(--white); }
+  .btn-ghost-hero {
+    background: transparent;
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 18px 28px;
+    border: var(--border-thick);
+    border-left: none;
+    border-color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: crosshair;
+  }
+  .btn-ghost-hero:hover { background: var(--white); color: var(--black); }
 
-  /* TRUST STRIP */
-  .trust-strip {
-    background: linear-gradient(90deg, #0c3d7a, #1a5fa8);
-    padding: 1.5rem 2rem;
-    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem;
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--yellow);
+    border-top: var(--border-thick);
+    border-bottom: var(--border-thick);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
   }
-  .trust-item { display: flex; align-items: center; gap: 10px; color: white; }
-  .trust-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .trust-item strong { display: block; font-size: 14px; font-weight: 600; }
-  .trust-item small { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+  .marquee-track span {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    padding: 0 2rem;
+  }
+  .marquee-track span::before {
+    content: '//';
+    margin-right: 1rem;
+    color: var(--red);
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
   /* STATS */
-  .stats { padding: 3rem 2rem; background: #f8faff; }
-  .stats-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
-  .stat-card {
-    background: white; border-radius: 16px; padding: 1.5rem;
-    text-align: center; border: 1px solid #e0eaff;
-    box-shadow: 0 2px 16px rgba(0,102,204,0.08);
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: var(--border-thick);
   }
-  .stat-card .num { font-size: 36px; font-weight: 700; background: linear-gradient(135deg, #0066cc, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .stat-card .lbl { font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 500; }
-
-  /* SECTION COMMONS */
-  section { padding: 5rem 2rem; }
-  .section-inner { max-width: 900px; margin: 0 auto; }
-  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f97316; margin-bottom: 8px; text-align: center; }
-  .section-title { font-size: clamp(24px, 4vw, 36px); font-weight: 700; text-align: center; margin-bottom: 0.5rem; color: #0a1628; }
-  .section-sub { font-size: 16px; color: #64748b; text-align: center; margin-bottom: 3rem; line-height: 1.6; }
-
-  /* AUSTIN SECTION */
-  .austin-section {
-    position: relative; padding: 5rem 2rem; overflow: hidden;
+  .stat-block {
+    padding: 2.5rem 2rem;
+    border-right: var(--border-thick);
+    background: var(--white);
   }
-  .austin-bg {
+  .stat-block:last-child { border-right: none; }
+  .stat-block:nth-child(odd) { background: var(--black); }
+  .stat-block:nth-child(odd) .stat-num { color: var(--yellow); }
+  .stat-block:nth-child(odd) .stat-label { color: var(--white); }
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--black);
+    letter-spacing: -0.04em;
+  }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+    color: #555;
+  }
+
+  /* AUSTIN STRIP */
+  .austin-strip {
+    position: relative;
+    border-bottom: var(--border-thick);
+    overflow: hidden;
+    height: 280px;
+    display: flex;
+    align-items: center;
+  }
+  .austin-strip-bg {
     position: absolute; inset: 0;
     background-image: url('https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1200&q=80');
-    background-size: cover; background-position: center 60%;
+    background-size: cover;
+    background-position: center 30%;
+    filter: grayscale(80%) contrast(1.2);
   }
-  .austin-overlay { position: absolute; inset: 0; background: rgba(4,44,83,0.82); }
-  .austin-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; text-align: center; }
-  .austin-content h2 { font-size: 32px; font-weight: 700; color: white; margin-bottom: 1rem; }
-  .austin-content p { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 2rem; }
-  .austin-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-  .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 500; }
+  .austin-strip-overlay {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(10,10,10,0.08) 3px,
+      rgba(10,10,10,0.08) 4px
+    ), rgba(10,10,10,0.6);
+  }
+  .austin-text {
+    position: relative; z-index: 1;
+    padding: 0 2rem;
+  }
+  .austin-text h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .austin-text h2 span { color: var(--yellow); }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .area-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 2px solid var(--yellow);
+    color: var(--yellow);
+  }
 
   /* SERVICES */
-  .services-section { background: linear-gradient(180deg, #f0f7ff 0%, #fff 100%); }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .section-header {
+    padding: 2rem 2rem 0;
+    border-bottom: var(--border-thick);
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    background: var(--black);
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--yellow);
+    padding-bottom: 2rem;
+  }
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    padding-bottom: 2rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: var(--border-thick);
+  }
   .service-card {
-    background: white; border-radius: 16px; padding: 1.5rem;
-    border: 1px solid #e0eaff; transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 12px rgba(0,102,204,0.06);
+    padding: 2rem 1.5rem;
+    border-right: var(--border-thick);
+    background: var(--white);
+    position: relative;
   }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,102,204,0.15); }
-  .service-icon {
-    width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
-    font-size: 24px; margin-bottom: 1rem;
+  .service-card:last-child { border-right: none; }
+  .service-card:hover { background: var(--yellow); }
+  .service-card:nth-child(5),
+  .service-card:nth-child(6),
+  .service-card:nth-child(7),
+  .service-card:nth-child(8) {
+    border-top: var(--border-thick);
   }
-  .service-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #0a1628; }
-  .service-card p { font-size: 13px; color: #64748b; line-height: 1.6; }
-  .badge { display: inline-block; border-radius: 999px; font-size: 11px; padding: 3px 10px; margin-top: 10px; font-weight: 600; }
-  .badge-blue { background: #dbeafe; color: #1e40af; }
-  .badge-orange { background: #ffedd5; color: #c2410c; }
-  .badge-green { background: #dcfce7; color: #166534; }
+  .service-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .service-icon { font-size: 32px; margin-bottom: 1rem; display: block; }
+  .service-card h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .service-card p { font-size: 13px; line-height: 1.6; color: #333; }
+  .service-badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 2px solid var(--black);
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+  }
+  .badge-red { background: var(--red); color: var(--white); border-color: var(--red); }
+  .badge-blue { background: var(--blue); color: var(--white); border-color: var(--blue); }
 
   /* PROCESS */
-  .process-section { background: white; }
-  .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative; }
-  .process-step { padding: 2rem 1.5rem; text-align: center; position: relative; }
-  .process-step:not(:last-child)::after {
-    content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
-    font-size: 24px; color: #cbd5e1; z-index: 1;
+  .process-section { border-bottom: var(--border-thick); }
+  .process-header {
+    background: var(--blue);
+    padding: 2rem;
+    border-bottom: var(--border-thick);
   }
-  .step-circle {
-    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 1rem;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px; font-weight: 700;
-    background: linear-gradient(135deg, #0066cc, #0ea5e9);
-    color: white; box-shadow: 0 4px 16px rgba(0,102,204,0.3);
+  .process-header h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--yellow);
+    letter-spacing: -0.02em;
   }
-  .process-step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #0a1628; }
-  .process-step p { font-size: 13px; color: #64748b; line-height: 1.6; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .process-step {
+    padding: 2rem 1.5rem;
+    border-right: var(--border-thick);
+  }
+  .process-step:last-child { border-right: none; }
+  .process-step:nth-child(odd) { background: var(--white); }
+  .process-step:nth-child(even) { background: #e8e3db; }
+  .step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.04em;
+  }
+  .process-step h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .process-step p { font-size: 13px; color: #444; line-height: 1.6; }
 
   /* TEAM */
-  .team-section { background: linear-gradient(180deg, #fff 0%, #f0f7ff 100%); }
-  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .team-section { border-bottom: var(--border-thick); }
+  .team-header {
+    background: var(--red);
+    padding: 2rem;
+    border-bottom: var(--border-thick);
+  }
+  .team-header h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
   .team-card {
-    border-radius: 20px; overflow: hidden;
-    border: 1px solid #e0eaff;
-    box-shadow: 0 4px 20px rgba(0,102,204,0.08);
-    text-align: center;
-    background: white;
+    border-right: var(--border-thick);
+    overflow: hidden;
   }
+  .team-card:last-child { border-right: none; }
   .team-avatar {
-    height: 140px; display: flex; align-items: center; justify-content: center;
-    font-size: 52px; font-weight: 700; color: white;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--white);
+    border-bottom: var(--border-thick);
+    position: relative;
+    overflow: hidden;
   }
-  .team-info { padding: 1rem; }
-  .team-info h3 { font-size: 16px; font-weight: 700; color: #0a1628; }
-  .team-info p { font-size: 13px; color: #64748b; margin-top: 3px; }
+  .team-info { padding: 1.25rem 1rem; background: var(--white); }
+  .team-info h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .team-info p { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin-top: 3px; }
 
   /* REVIEWS */
-  .reviews-section { background: #f8faff; }
-  .reviews-header { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 2.5rem; }
-  .reviews-big-score { font-size: 64px; font-weight: 700; background: linear-gradient(135deg, #0066cc, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
-  .reviews-meta { text-align: left; }
-  .reviews-meta .stars { font-size: 28px; color: #facc15; letter-spacing: 3px; }
-  .reviews-meta p { font-size: 14px; color: #64748b; margin-top: 4px; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .review-card {
-    background: white; border-radius: 16px; padding: 1.5rem;
-    border: 1px solid #e0eaff; box-shadow: 0 2px 12px rgba(0,102,204,0.06);
+  .reviews-section { border-bottom: var(--border-thick); }
+  .reviews-header {
+    padding: 2rem;
+    border-bottom: var(--border-thick);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--yellow);
+    flex-wrap: wrap;
   }
+  .reviews-big {
+    font-family: 'Space Mono', monospace;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  .reviews-meta .stars { font-size: 28px; letter-spacing: 3px; color: var(--black); }
+  .reviews-meta p {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    margin-top: 4px;
+  }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .review-card {
+    padding: 2rem 1.5rem;
+    border-right: var(--border-thick);
+    border-top: var(--border-thick);
+    background: var(--white);
+  }
+  .review-card:last-child { border-right: none; }
+  .review-card:nth-child(2) { background: var(--black); }
+  .review-card:nth-child(2) .review-text { color: rgba(245,240,232,0.8); }
+  .review-card:nth-child(2) .av-name { color: var(--white); }
+  .review-card:nth-child(2) .av-meta { color: rgba(245,240,232,0.5); }
   .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
-  .av { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
-  .av-name { font-size: 14px; font-weight: 700; color: #0a1628; }
-  .av-meta { font-size: 12px; color: #94a3b8; }
-  .review-stars { color: #facc15; font-size: 14px; margin-bottom: 0.5rem; }
-  .review-text { font-size: 14px; color: #475569; line-height: 1.7; }
+  .av {
+    width: 44px; height: 44px;
+    border: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .av-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .av-meta { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  .review-stars { color: var(--yellow); font-size: 14px; margin-bottom: 0.75rem; }
+  .review-card:nth-child(2) .review-stars { color: var(--yellow); }
+  .review-text { font-size: 14px; line-height: 1.7; color: #333; }
 
   /* CTA */
   .cta-section {
-    position: relative; padding: 6rem 2rem; text-align: center; overflow: hidden;
+    background: var(--black);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: var(--border-thick);
+    position: relative;
+    overflow: hidden;
   }
-  .cta-bg {
-    position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=1200&q=80');
-    background-size: cover; background-position: center 40%;
+  .cta-bg-text {
+    position: absolute;
+    font-family: 'Space Mono', monospace;
+    font-size: 200px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    text-transform: uppercase;
   }
-  .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(4,44,83,0.93), rgba(234,88,12,0.7)); }
-  .cta-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-  .cta-content h2 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; color: white; margin-bottom: 1rem; }
-  .cta-content p { font-size: 17px; color: rgba(255,255,255,0.85); margin-bottom: 2rem; }
-  .cta-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 480px; margin: 0 auto 2rem; }
-  .cta-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 1rem; }
-  .cta-card .icon { font-size: 24px; margin-bottom: 6px; }
-  .cta-card p { font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 3px; }
-  .cta-card strong { font-size: 13px; color: white; font-weight: 600; }
+  .cta-section h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(28px, 6vw, 64px);
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .cta-section h2 span { color: var(--yellow); }
+  .cta-section p {
+    font-size: 16px;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 3rem;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .cta-info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .cta-info-block {
+    border: var(--border-thick);
+    border-color: rgba(245,240,232,0.3);
+    padding: 1.5rem 2rem;
+    text-align: left;
+  }
+  .cta-info-block:not(:last-child) { border-right: none; }
+  .cta-info-block p {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .cta-info-block strong {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 22px 44px;
+    border: var(--border-thick);
+    border-color: var(--yellow);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  .cta-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
 
   /* FOOTER */
   footer {
-    background: #040f1e; color: rgba(255,255,255,0.6); text-align: center;
-    padding: 1.5rem 2rem; font-size: 13px;
+    background: var(--black);
+    border-top: var(--border-thick);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  footer a { color: #f97316; text-decoration: none; }
+  footer span {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.4);
+  }
+  footer a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .stats-grid, .services-grid, .process-steps, .team-grid, .reviews-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .stat-block:nth-child(2) { border-right: none; }
+    .service-card:nth-child(2n) { border-right: none; }
+    .service-card:nth-child(3), .service-card:nth-child(4) { border-top: var(--border-thick); }
+  }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">
-    <div class="nav-logo">💧</div>
-    <span>Brayden's Plumbing</span>
-  </a>
+  <a class="nav-brand" href="#">★ Brayden's Plumbing</a>
   <div class="nav-right">
-    <div class="nav-badge">Open 24/7</div>
-    <a class="nav-phone" href="tel:5128903144">📞 (512) 890-3144</a>
+    <div class="nav-open">// Open 24/7</div>
+    <a class="nav-phone" href="tel:5128903144">☎ (512) 890-3144</a>
   </div>
 </nav>
 
@@ -243,229 +672,267 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">📍 Austin, TX · Hurst Harbor Marina</div>
-    <h1>Austin's Most<br><span>Trusted Plumber</span></h1>
-    <p>Honest pricing, fast response, and a team that treats you like a neighbor — available 24/7.</p>
+    <div class="hero-tag">// Austin, TX — Hurst Harbor Marina</div>
+    <h1>Austin's<br><span>Plumber.</span></h1>
+    <p class="hero-sub">Honest pricing. Fast response. A team that treats you like a neighbor — available 24 hours a day.</p>
     <div class="hero-stars">
       <span class="stars">★★★★★</span>
-      <span>4.9 · 192 Google reviews</span>
+      <span>4.9 STARS // 192 GOOGLE REVIEWS</span>
     </div>
     <div class="hero-cta">
-      <a class="btn-orange" href="tel:5128903144">📞 Call (512) 890-3144</a>
-      <a class="btn-ghost" href="#services">See our services ↓</a>
+      <a class="btn-main" href="tel:5128903144">☎ Call (512) 890-3144</a>
+      <a class="btn-ghost-hero" href="#services">Services →</a>
     </div>
   </div>
 </div>
 
-<!-- TRUST STRIP -->
-<div class="trust-strip">
-  <div class="trust-item"><div class="trust-icon">🕐</div><div><strong>24/7 Emergency</strong><small>Always on call</small></div></div>
-  <div class="trust-item"><div class="trust-icon">🏅</div><div><strong>Licensed & Insured</strong><small>Fully certified</small></div></div>
-  <div class="trust-item"><div class="trust-icon">💲</div><div><strong>Upfront Pricing</strong><small>Before work starts</small></div></div>
-  <div class="trust-item"><div class="trust-icon">🛡️</div><div><strong>Warranty Included</strong><small>On all work</small></div></div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>24/7 Emergency Service</span>
+    <span>Drain Clearing</span>
+    <span>Camera Inspection</span>
+    <span>Sewer Line Repair</span>
+    <span>Leak Detection</span>
+    <span>Water Heater</span>
+    <span>Licensed & Insured</span>
+    <span>Upfront Pricing</span>
+    <span>Warranty Included</span>
+    <span>Austin TX</span>
+    <span>4.9 Stars</span>
+    <span>192 Reviews</span>
+    <span>24/7 Emergency Service</span>
+    <span>Drain Clearing</span>
+    <span>Camera Inspection</span>
+    <span>Sewer Line Repair</span>
+    <span>Leak Detection</span>
+    <span>Water Heater</span>
+    <span>Licensed & Insured</span>
+    <span>Upfront Pricing</span>
+    <span>Warranty Included</span>
+    <span>Austin TX</span>
+    <span>4.9 Stars</span>
+    <span>192 Reviews</span>
+  </div>
 </div>
 
 <!-- STATS -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat-card"><div class="num">4.9★</div><div class="lbl">Google Rating</div></div>
-    <div class="stat-card"><div class="num">192</div><div class="lbl">Five-star reviews</div></div>
-    <div class="stat-card"><div class="num">24/7</div><div class="lbl">Emergency response</div></div>
-    <div class="stat-card"><div class="num">100%</div><div class="lbl">Satisfaction guarantee</div></div>
+<div class="stats-grid">
+  <div class="stat-block">
+    <div class="stat-num">4.9★</div>
+    <div class="stat-label">Google Rating</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">192</div>
+    <div class="stat-label">5-Star Reviews</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Emergency Response</div>
+  </div>
+  <div class="stat-block">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Satisfaction Guarantee</div>
   </div>
 </div>
 
-<!-- AUSTIN SECTION -->
-<div class="austin-section">
-  <div class="austin-bg"></div>
-  <div class="austin-overlay"></div>
-  <div class="austin-content">
-    <h2>Proudly Serving All of Austin</h2>
-    <p>From South Congress to the Hill Country, Brayden's Plumbing is your local team — familiar with Austin's clay soil, aging pipes, and the hard water that wreaks havoc on your fixtures.</p>
-    <div class="austin-chips">
-      <span class="chip">78734 · Lakeway</span>
-      <span class="chip">Cedar Park</span>
-      <span class="chip">Round Rock</span>
-      <span class="chip">Bee Cave</span>
-      <span class="chip">West Austin</span>
-      <span class="chip">Downtown</span>
-      <span class="chip">South Austin</span>
+<!-- AUSTIN STRIP -->
+<div class="austin-strip">
+  <div class="austin-strip-bg"></div>
+  <div class="austin-strip-overlay"></div>
+  <div class="austin-text">
+    <h2>Serving All of <span>Austin.</span></h2>
+    <div class="area-tags">
+      <span class="area-tag">78734 · Lakeway</span>
+      <span class="area-tag">Cedar Park</span>
+      <span class="area-tag">Round Rock</span>
+      <span class="area-tag">Bee Cave</span>
+      <span class="area-tag">West Austin</span>
+      <span class="area-tag">Downtown</span>
+      <span class="area-tag">South Austin</span>
     </div>
   </div>
 </div>
 
 <!-- SERVICES -->
-<section id="services" class="services-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">What we do</div>
-    <div class="section-title">Every Plumbing Job, Done Right</div>
-    <div class="section-sub">From a clogged sink to a full sewer line replacement — we handle it all with upfront pricing and a warranty on every job.</div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon" style="background:#fff0e6;">🚨</div>
-        <h3>Emergency Service</h3>
-        <p>Burst pipes, major leaks, backups. We're on call 24 hours a day, 365 days a year.</p>
-        <span class="badge badge-orange">24/7 Available</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#e8f4fd;">🔍</div>
-        <h3>Camera Inspection</h3>
-        <p>We scope your sewer line and show you exactly what's happening before any work begins.</p>
-        <span class="badge badge-blue">Transparent</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#e8f4fd;">🚿</div>
-        <h3>Drain Clearing</h3>
-        <p>Kitchen, bathroom, and floor drains. Clogs cleared fast — same day in most cases.</p>
-        <span class="badge badge-blue">Most Common</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#e8f4fd;">🔧</div>
-        <h3>Sewer Line Repair</h3>
-        <p>Full repairs and replacements. We explain every option and cost upfront — no surprises.</p>
-        <span class="badge badge-green">Warranted</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#fff0e6;">💧</div>
-        <h3>Leak Detection</h3>
-        <p>Hidden leaks behind walls and under slabs. Fast, accurate diagnosis saves your home.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#fff0e6;">🔥</div>
-        <h3>Water Heater</h3>
-        <p>Tank and tankless install, repair, and replacement. All major brands serviced.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#e8f4fd;">🌊</div>
-        <h3>Water Softener</h3>
-        <p>Install and service for Austin's notoriously hard water. Protect your pipes and fixtures.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" style="background:#e8f4fd;">🏠</div>
-        <h3>Remodel Plumbing</h3>
-        <p>Kitchen and bath remodels. Rough-in through finish — we coordinate with your contractor.</p>
-      </div>
-    </div>
+<div id="services">
+  <div class="section-header">
+    <div class="section-label">// 001</div>
+    <div class="section-title">What We Fix</div>
   </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">How it works</div>
-    <div class="section-title">Simple, Stress-Free from Start to Finish</div>
-    <div class="section-sub" style="margin-bottom:3rem;">No guesswork. No hidden fees. Just honest plumbing done right.</div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-circle">1</div>
-        <h3>Call or Text</h3>
-        <p>Axel and Chris in the office pick up fast — describe your issue and get scheduled, often same day.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-circle">2</div>
-        <h3>Diagnose & Quote</h3>
-        <p>We arrive on time, inspect the issue, and give you a clear price before touching anything.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-circle">3</div>
-        <h3>Work Done Right</h3>
-        <p>Job completed cleanly and efficiently. We treat your home with respect — no shortcuts.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-circle">4</div>
-        <h3>Backed by Warranty</h3>
-        <p>All work is warranted. If something isn't right, we come back and fix it at no charge.</p>
-      </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">001</div>
+      <span class="service-icon">🚨</span>
+      <h3>Emergency Service</h3>
+      <p>Burst pipes, major leaks, sewage backups. We're on call 24 hours a day, 365 days a year. No exceptions.</p>
+      <span class="service-badge badge-red">24/7</span>
     </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section class="team-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">The team</div>
-    <div class="section-title">Friendly Faces, Expert Hands</div>
-    <div class="section-sub">Every technician is licensed, background-checked, and trained to treat your home with respect.</div>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#0066cc,#0ea5e9);">B</div>
-        <div class="team-info"><h3>Brayden</h3><p>Owner & Master Plumber</p></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e);">E</div>
-        <div class="team-info"><h3>Eddie</h3><p>Lead Field Technician</p></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">A</div>
-        <div class="team-info"><h3>Axel</h3><p>Customer Service</p></div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#f97316,#fb923c);">C</div>
-        <div class="team-info"><h3>Chris</h3><p>Customer Service</p></div>
-      </div>
+    <div class="service-card">
+      <div class="service-num">002</div>
+      <span class="service-icon">🔍</span>
+      <h3>Camera Inspection</h3>
+      <p>We scope your sewer line and show you exactly what's wrong — before any work begins. Full transparency.</p>
+      <span class="service-badge badge-blue">Transparent</span>
     </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews-section">
-  <div class="section-inner">
-    <div class="section-eyebrow">Reviews</div>
-    <div class="section-title">What Austin Is Saying</div>
-    <div class="reviews-header">
-      <div class="reviews-big-score">4.9</div>
-      <div class="reviews-meta">
-        <div class="stars">★★★★★</div>
-        <p>Based on 192 Google reviews</p>
-      </div>
+    <div class="service-card">
+      <div class="service-num">003</div>
+      <span class="service-icon">🚿</span>
+      <h3>Drain Clearing</h3>
+      <p>Kitchen, bathroom, and floor drains. Clogs cleared fast — same day in most cases. Clogged no more.</p>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-top">
-          <div class="av" style="background:#dbeafe;color:#1e40af;">JT</div>
-          <div><div class="av-name">Jasmine T.</div><div class="av-meta">1 month ago · 7 reviews</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"One of the most responsive and fair plumbing companies we have worked with. Their pricing is very reasonable, and the whole team is friendly, professional, and easy to talk to. They feel like a helpful neighbor."</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top">
-          <div class="av" style="background:#dcfce7;color:#166534;">BR</div>
-          <div><div class="av-name">Brielle R.</div><div class="av-meta">5 days ago</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Axel and Chris gave excellent customer service from the very first call. Honest, quality plumbing is getting harder to find — this company truly takes care of its customers. I can't recommend them enough."</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top">
-          <div class="av" style="background:#ede9fe;color:#6d28d9;">PB</div>
-          <div><div class="av-name">Patrick B.</div><div class="av-meta">Local Guide · 3 months ago</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Eddie explained the camera inspection process and gave us the cost upfront. Showed up right on time, finished the sewer line job cleanly, and left the yard spotless. Couldn't ask for a better experience."</p>
-      </div>
+    <div class="service-card">
+      <div class="service-num">004</div>
+      <span class="service-icon">🔧</span>
+      <h3>Sewer Line Repair</h3>
+      <p>Full repairs and replacements. Every option and cost explained upfront — zero surprises on your bill.</p>
+      <span class="service-badge" style="border-color:var(--black);">Warranted</span>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-section">
-  <div class="cta-bg"></div>
-  <div class="cta-overlay"></div>
-  <div class="cta-content">
-    <h2>Need a Plumber Right Now?</h2>
-    <p>We answer 24 hours a day, 7 days a week. Call or text — a real person picks up.</p>
-    <div class="cta-cards">
-      <div class="cta-card"><div class="icon">📞</div><p>Call or text</p><strong>(512) 890-3144</strong></div>
-      <div class="cta-card"><div class="icon">📍</div><p>Location</p><strong>Austin, TX 78734</strong></div>
-      <div class="cta-card"><div class="icon">🕐</div><p>Hours</p><strong>Open 24/7</strong></div>
+    <div class="service-card">
+      <div class="service-num">005</div>
+      <span class="service-icon">💧</span>
+      <h3>Leak Detection</h3>
+      <p>Hidden leaks behind walls and under slabs. Fast, accurate diagnosis before your home takes damage.</p>
     </div>
-    <a class="btn-orange" href="tel:5128903144" style="font-size:18px; padding:18px 36px;">📞 Call (512) 890-3144</a>
+    <div class="service-card">
+      <div class="service-num">006</div>
+      <span class="service-icon">🔥</span>
+      <h3>Water Heater</h3>
+      <p>Tank and tankless install, repair, and replacement. All major brands. Hot water restored fast.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">007</div>
+      <span class="service-icon">🌊</span>
+      <h3>Water Softener</h3>
+      <p>Install and service for Austin's notoriously hard water. Protect your pipes, fixtures, and appliances.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">008</div>
+      <span class="service-icon">🏠</span>
+      <h3>Remodel Plumbing</h3>
+      <p>Kitchen and bath remodels. Rough-in through finish work. We coordinate with your contractor seamlessly.</p>
+    </div>
   </div>
 </div>
 
+<!-- PROCESS -->
+<div class="process-section">
+  <div class="process-header">
+    <h2>// How It Works — Simple. Honest. Done.</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h3>Call or Text</h3>
+      <p>Axel and Chris pick up fast. Describe your issue and get scheduled — often same day.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h3>Diagnose & Quote</h3>
+      <p>We arrive on time, inspect the issue, give you a firm price before touching anything.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h3>Work Done Right</h3>
+      <p>Job completed cleanly and efficiently. No hidden fees. No shortcuts. No surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h3>Backed by Warranty</h3>
+      <p>All work warranted. If something isn't right we come back and fix it at zero charge.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="team-section">
+  <div class="team-header">
+    <h2>// The Team — Licensed. Background-Checked. Expert.</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar" style="background:#0033FF;">B</div>
+      <div class="team-info"><h3>Brayden</h3><p>Owner & Master Plumber</p></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:#0a0a0a;">E</div>
+      <div class="team-info"><h3>Eddie</h3><p>Lead Field Technician</p></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:#FF2200;">A</div>
+      <div class="team-info"><h3>Axel</h3><p>Customer Service</p></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:#FFE600; color:#0a0a0a;">C</div>
+      <div class="team-info"><h3>Chris</h3><p>Customer Service</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section">
+  <div class="reviews-header">
+    <div class="reviews-big">4.9</div>
+    <div class="reviews-meta">
+      <div class="stars">★★★★★</div>
+      <p>192 Google Reviews</p>
+    </div>
+    <div style="margin-left:auto; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; text-transform:uppercase;">// What Austin Is Saying</div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top">
+        <div class="av" style="background:#E6F1FB;">JT</div>
+        <div><div class="av-name">Jasmine T.</div><div class="av-meta">1 month ago · 7 reviews</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"One of the most responsive and fair plumbing companies we've worked with. Pricing is very reasonable. The whole team is friendly, professional, and easy to talk to. Like a helpful neighbor."</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="av" style="background:var(--yellow);">BR</div>
+        <div><div class="av-name">Brielle R.</div><div class="av-meta">5 days ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Axel and Chris gave excellent customer service from the very first call. Honest, quality plumbing is getting harder to find — this company truly takes care of its customers."</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="av" style="background:#ede9fe;">PB</div>
+        <div><div class="av-name">Patrick B.</div><div class="av-meta">Local Guide · 3 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Eddie explained the camera inspection process and gave us the cost upfront. Showed up on time, finished the sewer line job cleanly, left the yard spotless. Couldn't ask for better."</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-bg-text">CALL NOW</div>
+  <h2>Need a<br><span>Plumber Now?</span></h2>
+  <p>// Real people. Real answers. 24 hours a day, 7 days a week.</p>
+  <div class="cta-info-grid">
+    <div class="cta-info-block">
+      <p>// Call or Text</p>
+      <strong>(512) 890-3144</strong>
+    </div>
+    <div class="cta-info-block">
+      <p>// Location</p>
+      <strong>Austin, TX 78734</strong>
+    </div>
+    <div class="cta-info-block">
+      <p>// Hours</p>
+      <strong>Open 24/7</strong>
+    </div>
+  </div>
+  <a class="cta-btn" href="tel:5128903144">☎ Call (512) 890-3144</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Brayden's Plumbing · 16405 Clara Van St #6500, Austin, TX 78734 · <a href="tel:5128903144">(512) 890-3144</a></p>
+  <span>© 2025 Brayden's Plumbing — 16405 Clara Van St #6500, Austin, TX 78734</span>
+  <a href="tel:5128903144">(512) 890-3144</a>
 </footer>
 
 </body>
